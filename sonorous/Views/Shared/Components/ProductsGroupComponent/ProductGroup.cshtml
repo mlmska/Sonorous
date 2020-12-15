@@ -1,0 +1,32 @@
+﻿@model IEnumerable<sonorous.Datalayer.Entites.Product.Product_Group>
+
+<li class="nav-item catagory">
+    <a class="nav-link " href="#">دسته بندی</a>
+    <ul>
+        @foreach (var group in Model.Where(p => p.ParentID == null))
+        {
+        <li>
+            <a href="/Products?selectedGroups=@group.GroupID">@group.GroupTitle</a>
+            @if (Model.Any(p => p.ParentID == group.GroupID))
+            {
+                <div>
+                    <ul>
+                        @foreach (var sub in Model.Where(p => p.ParentID == group.GroupID))
+                        {
+                            <li>
+                                <a href="/Products?selectedGroups=@sub.GroupID">
+                                    @sub.GroupTitle
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+        </li>
+        }
+
+
+    </ul>
+</li>
+

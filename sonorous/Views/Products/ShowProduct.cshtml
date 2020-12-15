@@ -1,0 +1,355 @@
+﻿@model sonorous.Datalayer.Entites.Product.Product
+@using sonorous.Core.Convertors;
+@{
+    ViewData["Title"] = "ShowProduct";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">خانه</a></li>
+        <li class="breadcrumb-item"><a href="#"></a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+    </ol>
+</nav>
+<div class="single-content">
+    <section class="gallery">
+        <div class="gallery-items">
+            <ul class="gallery-options">
+                <li><a href=""><i class="far fa-heart"></i></a></li>
+                <li><a href=""><i class="fas fa-share-alt"></i></a></li>
+            </ul>
+            <div class="gallery-img">
+                <img src="/Products/image/@Model.ProductImageName" alt="">
+            </div>
+
+        </div>
+        <ul class="gallery-items-img">
+            <li class="product-img-thumb">
+                <div class="thumb-wrapper">
+                    <img src="img/photo_2020-09-01_20-55-15.jpg" alt="">
+                </div>
+            </li>
+            <li class="product-img-thumb">
+                <div class="thumb-wrapper">
+                    <img src="/img/photo_2020-09-01_20-55-15.jpg" alt="">
+                </div>
+            </li>
+            <li class="product-img-thumb">
+                <div class="thumb-wrapper">
+                    <img src="/img/photo_2020-09-01_20-55-15.jpg" alt="">
+                </div>
+            </li>
+            <li class="product-img-thumb">
+                <div class="thumb-wrapper">
+                    <img src="/img/photo_2020-09-01_20-55-15.jpg" alt="">
+                </div>
+            </li>
+
+        </ul>
+    </section>
+    <section class="product-info">
+        <div class="product-heading">
+            <h2>@Model.ProductName</h2>
+        </div>
+        <div class="product-info-group">
+            <div class="product-features">
+                <div class="prouduct-feature-heading">
+                    <span class="ss">asdasdasdasdasdasd</span>
+                </div>
+                <div class="product-feaures-wrappers">
+                    <div class="product-brand">
+                        <ul>
+                            <li>
+                                <span>گروه </span> :
+                                <a class="btn-link-brand" href="">@Model.Product_Group.GroupTitle</a>
+                            </li>
+                            <li>
+                                <span>ساخت </span> :
+                                <a class="btn-link-brand" href="">@Model.User.Username</a>
+                            </li>
+                            <li>
+                                <span>تاریخ </span> :
+                                <a class="btn-link-brand" href="#">@Model.Createdate.toshamsi()</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="product-colors">
+                        <span class="color-span">rang</span>
+                        <ul class="product-colors-button">
+                            <li class="colors-ui">
+                                <label class="colors-ui-label">
+                                    <span class="colors-ui-span"></span>
+                                    <input type="radio" class="colors-ui-selector">
+                                    <span class="colors-ui-span-check">سبز</span>
+                                </label>
+                            </li>
+                            <li class="colors-ui">
+                                <label class="colors-ui-label">
+                                    <span class="colors-ui-span"></span>
+                                    <input type="radio" class="colors-ui-selector">
+                                    <span class="colors-ui-span-check">سبز</span>
+                                </label>
+                            </li>
+                            <li class="colors-ui">
+                                <label class="colors-ui-label">
+                                    <span class="colors-ui-span"></span>
+                                    <input type="radio" class="colors-ui-selector">
+                                    <span class="colors-ui-span-check">سبز</span>
+                                </label>
+                            </li>
+                            <li class="colors-ui">
+                                <label class="colors-ui-label">
+                                    <span class="colors-ui-span"></span>
+                                    <input type="radio" class="colors-ui-selector">
+                                    <span class="colors-ui-span-check">سبز</span>
+                                </label>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <div class="product-short-descrip">
+                        <h2>توضیح کوتاه</h2>
+                        <p>@Html.Raw(Model.ProductDescription)</p>
+                        <a class="btn-descrip" href="">دیدن مشخصات</a>
+                    </div>
+                    <div class="tags">
+                        <div class="prouduct-tag-heading">
+                            <span class="ss">کلمات کلیدی</span>
+                        </div>
+                        @if (Model.Tags != null)
+                        {
+                            <div class="tag-buttons">
+                                @foreach (string tag in Model.Tags.Split('-', StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <a href="/Products?filter=@tag" class="tag">@tag</a>
+                                }
+
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <div class="product-summary">
+                <div class="box">
+                    <div class="box-cc">
+                        <div class="box-wrapper">
+                            <div class="group-links">
+                                <div class="product-group-name">
+                                    <h3>asdasdasd</h3>
+                                    <span class="group-name">از : @ViewBag.subgroup </span>
+                                </div>
+                            </div>
+                            <div class="group-links">
+                                <div class="send">
+                                    <h4>سهخته شده توسط فروشگاه سونورس</h4>
+                                </div>
+                            </div>
+                            <div class="link-product">
+                                <div class="product-available">
+                                    <span>
+                                        @if (Model.ProductStatus.StatusTilte == "موجود")
+                                        {
+                                            @Model.ProductStatus.StatusTilte
+                                            <i class="fas fa-check"></i>
+                                        }
+                                        else
+                                        {
+                                            @Model.ProductStatus.StatusTilte
+                                            <i class="fas fa-times-circle"></i>
+                                        }
+
+                                    </span>
+                                </div>
+                                <div class="product-available">
+                                    <a class="btn-add-favorite" href=""> افزون به علاقه مندی</a>
+                                </div>
+                            </div>
+                            <div class="product-price">
+                                <div class="price-real">
+                                    <div class="price-value">@Model.ProductPrice.ToString("#,0")</div>
+                                    تومان
+                                </div>
+                            </div>
+                        </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="group-button  ssa">
+                                <a href="/Products/BuyProducts/@Model.ProductID" class="btn btn-buy">خرید</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                                برای خرید لطفا به حساب خود ورود کنید
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>
+@{
+    List<sonorous.Datalayer.Entites.Product.Product> list = ViewBag.productingroups as List<sonorous.Datalayer.Entites.Product.Product>;
+}
+<section class="related-products">
+    <div class="related-products-heading">
+        <span>محصولات مرتبط</span>
+    </div>
+    <div class="contain">
+        @foreach (var item in list)
+        {
+            <div class="card">
+                <span class="saving saving-left">50%</span>
+                <img src="/Products/image/@item.ProductImageName" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <div class="caption">
+                        <h4><a href="">@item.ProductName</a></h4>
+                        <p class="price"> <span class="price-new">@item.ProductPrice.ToString("#,0") تومان</span> <span class="price-old">240000 تومان</span> </p>
+                        <div class="rating">
+                            <span class="fa fa-stack">
+                                <i class="fa fa-star fa-stack-2x"></i>
+                                <i class="fa fa-star-o fa-stack-2x"></i>
+                            </span> <span class="fa fa-stack">
+                                <i class="fa fa-star fa-stack-2x"></i>
+                                <i class="fa fa-star-o fa-stack-2x"></i>
+                            </span><span class="fa fa-stack">
+                                <i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i>
+                            </span>
+                            <span class="fa fa-stack">
+                                <i class="fa fa-star fa-stack-2x"></i>
+                                <i class="fa fa-star-o fa-stack-2x"></i>
+                            </span>
+                            <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a class="afzoden" href="/ShowProduct/@item.ProductID"><span> نمایش</span></a>
+                        <div class="add-to-links">
+                            <button class="favorite" type="button" data-toggle="tooltip" title="" onclick="" data-original-title="افزودن به علاقه مندی ها"><i class="fa fa-heart"></i></button>
+                            <button class="favorite" type="button" data-toggle="tooltip" title="" onclick="" data-original-title="افزودن به علاقه مندی ها"><i class="fa fa-heart"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+
+
+
+
+
+
+    </div>
+</section>
+<section class="product-feature-comment">
+    <ul class="product-tabs tabs">
+        <li class="active"><a href="#tab-description" data-toggle="tab" aria-expanded="true">توضیحات</a></li>
+        <li class=""><a href="#tab-specification" data-toggle="tab" aria-expanded="false">مشخصات</a></li>
+        <li class=""><a href="#tab-review" data-toggle="tab" aria-expanded="false">بررسی (2)</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div itemprop="description" id="tab-description" class="tab-pane active">
+            <div class="text">
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای
+                    کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در
+                    این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur cupiditate, accusamus a repudiandae distinctio nobis veniam fugit, est velit, saepe odio! Dolorum est doloribus porro suscipit molestias maxime voluptatibus laborum.</p>
+            </div>
+        </div>
+        <div id="tab-specification" class="tab-pane">
+            <div class="product-param">
+                <ul data-title="ویژگی های محصول">
+                    <li>
+                        <span>وزن :</span>
+                        <span>25kg</span>
+                    </li>
+                    <li>
+                        <span>وزن :</span>
+                        <span>25kg</span>
+                    </li>
+                    <li>
+                        <span>وزن :</span>
+                        <span>25kg</span>
+                    </li>
+                    <li>
+                        <span>وزن :</span>
+                        <span>25kg</span>
+                    </li>
+                    <li>
+                        <span>وزن :</span>
+                        <span>25kg</span>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+        <div id="tab-review" class="tab-pane">
+            <div id="review">
+                <div class="comment-layer">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <form asp-controller="Products" asp-action="CreateComment"
+                          data-ajax="true"
+                          data-ajax-method="post"
+                          data-ajax-mode="replace"
+                          data-ajax-update="#listcomment"
+                          data-ajax-success="Success">
+                        <input type="hidden" name="comment.ProductID" value="@Model.ProductID" />
+
+                        <div class="col-md-12 send-comment">
+                            <div class="form-group">
+                                <textarea class="form-control" id="comment_Comment" name="comment.Comment" placeholder="متن دیدگاه"></textarea>
+                            </div>
+                            <input type="submit" class="btn btn-send-comment" value="ثبت دیدگاه ارزشمند شما">
+                        </div>
+                       
+                        <div class="clearfix"></div>
+
+                    </form>
+                    }
+                    else
+                    {
+                        <div class="alert alert-danger">
+                            جهت درج نظر لطفا به حساب خود ورود کنید
+                        </div>
+                    }
+                    <ul class="comment-list" id="listcomment">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js" integrity="sha512-DedNBWPF0hLGUPNbCYfj8qjlEnNE92Fqn7xd3Sscfu7ipy7Zu33unHdugqRD3c4Vj7/yLv+slqZhMls/4Oc7Zg==" crossorigin="anonymous"></script>
+    <script>
+        function Success() {
+            $("#comment_Comment").val("");
+        }
+
+        $(function () {
+            $("#listcomment").load("/Products/ShowComment/" +@Model.ProductID);
+        });
+
+        function pageComment(pageid) {
+            $("#listcomment").load("/Products/ShowComment/" +@Model.ProductID+"?pageid=" + pageid);
+        }
+
+    </script>
+    <script type="text/javascript" src="~/slick/slick.min.js"></script>
+        <script src="~/js/scripts.js"></script>
+
+
+
+}

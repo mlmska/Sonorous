@@ -1,0 +1,11 @@
+﻿@model sonorous.Datalayer.Entites.User.User
+@{
+    ViewData["Title"] = "_AvtivateEmail";
+}
+<div style="direction:rtl;padding:20px">
+    <h2>@Model.Username !عزیز</h2>
+    <p>با تشکر از عضویت در سایت لطفا در لینک کلیک کنید تا حساب شما فعال شود</p>
+    <a href="https://localhost:44396/Account/ActiveAccount/@Model.Activecode">فعال سازی</a>
+</div>
+
+

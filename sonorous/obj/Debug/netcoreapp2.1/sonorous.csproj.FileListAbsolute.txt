@@ -1,0 +1,16 @@
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\sonorous.deps.json
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\sonorous.runtimeconfig.json
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\sonorous.runtimeconfig.dev.json
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\sonorous.dll
+C:\Users\user\source\repos\sonorous\sonorous\bin\Debug\netcoreapp2.1\sonorous.pdb
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.csprojAssemblyReference.cache
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.AssemblyInfo.cs
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.RazorAssemblyInfo.cache
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.RazorAssemblyInfo.cs
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.RazorTargetAssemblyInfo.cache
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.dll
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.pdb
+C:\Users\user\source\repos\sonorous\sonorous\obj\Debug\netcoreapp2.1\sonorous.genruntimeconfig.cache

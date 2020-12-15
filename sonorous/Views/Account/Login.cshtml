@@ -1,0 +1,63 @@
+﻿@model sonorous.Core.DTOs.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<main class="client-page">
+    <div class="container-content">
+        @if (ViewBag.issuccess != null)
+        {
+            <div class="alert alert-success text-right">
+                <p>ورود با موفقیت انجام شد</p>
+            </div>
+            <script>
+                // Your delay in milliseconds
+                var delay = 2000;
+                setTimeout(function () { window.location = "https://localhost:44396/UserPanel"; }, delay);
+            </script>
+        }
+
+        @if (ViewBag.EditProfile==true)
+        {
+            <div class="alert alert-warning">
+                به دلیل ویرایش حسابو و بارگزاری مجدد اطلاعات لطفا دوباره وارد شوید
+            </div>
+        }
+
+
+        <header>
+            <h2> ورود به سایت </h2>
+        </header>
+
+        <div class="form-layer">
+
+            <form action="Login" method="post">
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="email-address"><i class="zmdi zmdi-email"></i>|<i class="zmdi zmdi-account"></i></span>
+                    <input asp-for="emailorusername" type="text" class="form-control" name="emailorusername" placeholder="ایمیل یا نام کاربری" aria-describedby="email-address">
+                </div>
+
+                <div class="input-group">
+                    <span class="input-group-addon" id="password"><i class="zmdi zmdi-lock"></i></span>
+                    <input asp-for="Password" type="text" class="form-control" name="Password" placeholder="رمز عبور " aria-describedby="password">
+                </div>
+                <div asp-validation-summary="All" class="text-left text-danger"></div>
+                <div class="links">
+                    <div class="remember-me">
+                        <label><input asp-for="Remmeberme" type="checkbox" name="">  مرا بخاطر بسپار </label>
+                    </div>
+
+                    <div class="link">
+                        <a href="/ForgotPassword"> <i class="zmdi zmdi-lock"></i> رمز عبور خود را فراموش کرده ام !</a>
+                        <a href="/Register"> <i class="zmdi zmdi-account"></i> عضویت در سایت </a>
+                    </div>
+
+                    <button class="btn btn-success"> ورود به سایت </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+    </main>

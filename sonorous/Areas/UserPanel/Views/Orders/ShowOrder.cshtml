@@ -1,0 +1,144 @@
+﻿@model sonorous.Datalayer.Entites.Order.Order
+@using sonorous.Core.Services.Interfaces;
+@inject IUserServices _userServices
+@{
+    ViewData["Title"] = "ShowOrder";
+    int sumorder = Model.OrderSum;
+    string discounttype = ViewBag.discounttype.ToString();
+}
+
+    <main>
+        <div class="container">
+            <div class="user-account">
+                <div class="row">
+                    <partial name="_Sidebars" />
+                    <div class="col-md-9 col-sm-8 col-xs-12">
+                        <section class="user-account-content">
+                            <header>
+                                <h1> سبد خرید شما </h1>
+                            </header>
+                            @if (ViewBag.finaly == true)
+                            {
+                                <div class="alert alert-success">
+                                    خرید شما با موفقیت انجام گردید
+
+                                </div>
+                            }
+                            <table class="table table-bordered text-danger">
+                                <thead>
+                                    <tr>
+                                        <th>محصول</th>
+                                        <th>تعداد</th>
+                                        <th>قیمت</th>
+                                        <th>جمع</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.OrderDetails)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a href="/ShowProduct/@item.ProductID" target="_blank">@item.Product.ProductName</a>
+                                            </td>
+                                            <td>@item.Count</td>
+                                            <td>@item.Price</td>
+                                            <td>@((item.Count * item.Price).ToString("#,0"))</td>
+                                        </tr>
+                                    }
+                                    @if (!Model.isFinaly)
+                                    {
+                                        <tr>
+                                            <td colspan="3" class="text-left">کد تخفیف</td>
+                                            <td>
+                                                <form action="/UserPanel/Orders/UseDiscount" method="post">
+                                                    <input type="hidden" name="orderid" value="@Model.OrderID" />
+                                                    <input type="text" name="code" class="form-control" />
+                                                    <input type="submit" class="btn btn-primary btn-block" value="اعمال" mt-5 />
+                                                </form>
+                                                @if (discounttype != "")
+                                                {
+                                                    switch (discounttype)
+                                                    {
+                                                        case "Success":
+                                                            {
+                                                                <div class="alert alert-success">
+                                                                    <p class="text-muted">کد با موفقیت اعمال شد</p>
+                                                                </div>
+                                                                break;
+                                                            }
+                                                        case "ExpireDate":
+                                                            {
+                                                                <div class="alert alert-danger">
+                                                                    <p class="text-muted">تاریخ کد به اتمام رسید است</p>
+                                                                </div>
+                                                                break;
+                                                            }
+                                                        case "NotFound":
+                                                            {
+                                                                <div class="alert alert-danger">
+                                                                    <p class="text-muted">کد معتبر نیست</p>
+                                                                </div>
+                                                                break;
+                                                            }
+                                                        case "Finished":
+                                                            {
+                                                                <div class="alert alert-danger">
+                                                                    <p class="text-muted">کد به اتمام رسیده است</p>
+                                                                </div>
+                                                                break;
+                                                            }
+                                                        case "UserUsed":
+                                                            {
+                                                                <div class="alert alert-info">
+                                                                    <p class="text-muted">این کد قبلا توسط شما استفاده شده است</p>
+                                                                </div>
+                                                                break;
+                                                            }
+                                                    }
+                                                }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                                    <tr>
+                                        <td colspan="3" class="text-left">جمع کل</td>
+                                        <td>
+                                            @sumorder
+                                        </td>
+                                    </tr>
+                                    @if (!Model.isFinaly)
+                                                        {
+                                        <tr>
+                                            <td colspan="2" class="text-left"></td>
+                                            <td colspan="2">
+                                                @if (_userServices.balancewallett(User.Identity.Name) >= sumorder)
+                                                {
+                                                    <a class="btn btn-success btn-block" href="/UserPanel/Orders/FinalyOrder/@Model.OrderID">تایید فاکتور</a>
+                                                }
+                                                else
+                                                {
+                                                    <a class="btn btn-success btn-block disabled">تایید فاکتور</a>
+                                                    <div class="alert alert-danger">
+                                                        <p>موجودی کیف شما کافی نمی باشد</p>
+                                                        <a href="/UserPanel/Wallett" class="alert-link">حساب خود را شارژ کنید</a>
+
+                                                    </div>
+                                                }
+
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                             
+                        </section>
+                            
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </main>

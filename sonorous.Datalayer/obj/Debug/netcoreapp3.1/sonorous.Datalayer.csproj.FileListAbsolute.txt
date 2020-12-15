@@ -1,0 +1,11 @@
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\bin\Debug\netcoreapp3.1\sonorous.Datalayer.deps.json
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\bin\Debug\netcoreapp3.1\sonorous.Datalayer.dll
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.AssemblyInfoInputs.cache
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.AssemblyInfo.cs
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\bin\Debug\netcoreapp3.1\sonorous.Datalayer.runtimeconfig.json
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\bin\Debug\netcoreapp3.1\sonorous.Datalayer.runtimeconfig.dev.json
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.genruntimeconfig.cache
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\bin\Debug\netcoreapp3.1\sonorous.Datalayer.pdb
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.dll
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.pdb
+C:\Users\user\source\repos\sonorous\sonorous.Datalayer\obj\Debug\netcoreapp3.1\sonorous.Datalayer.csproj.CoreCompileInputs.cache

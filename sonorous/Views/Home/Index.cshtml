@@ -1,0 +1,30 @@
+﻿@model IEnumerable<sonorous.Core.DTOs.ShowProductListViewModel>
+
+<div class="wrapper">
+    <div class="row">
+        <partial name="_Sidebar" />
+        <section class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-10 col-sm-10 col-xs-10">
+                        <div class="cards-section">
+                            <header class="product-header">
+                                <h2>محصولات </h2>
+                            </header>
+                           @foreach(var item in Model)
+                           {
+                               <partial name="_BoxProduct" model="@item" />
+                           }
+
+
+                         
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>

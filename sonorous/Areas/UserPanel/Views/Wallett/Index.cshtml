@@ -1,0 +1,75 @@
+﻿@using sonorous.Core.DTOs;
+@using sonorous.Core.Convertors;
+@model sonorous.Core.DTOs.ChargeWallettViewModel
+
+
+<main>
+    <div class="container">
+        <div class="user-account">
+            <div class="row">
+                <partial name="_Sidebars" />
+                <div class="col-md-9 col-sm-8 col-xs-12">
+                    <section class="user-account-content">
+                        <header>
+                            <h1> شارژ کیف پول </h1>
+                        </header>
+                        <div class="inner form-layer">
+                            <form asp-action="Index" method="post">
+                            
+
+                                <div class="row">
+
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="password"><i class="zmdi zmdi-money"></i></span>
+                                            <input asp-for="Amount" type="number" class="form-control" placeholder="مبلغ به تومان">
+                                        </div>
+                                    </div>
+                                    <div class="text-danger" asp-validation-summary="All"></div>
+                                    <div class="col-md-7 col-sm-8 col-xs-12">
+                                        <button class="btn btn-success"> شارژ کیف پول </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <hr />
+                            @{ 
+                                List<WallettViewModel> list = ViewBag.ListWallet as List<WallettViewModel>;
+                            }
+                            <table class="table table-bordered text-danger">
+                                <tr>
+                                    <th>مبلغ</th>
+                                    <th>تاریخ</th>
+                                    <th>نوع تراکنش</th>
+                                    <th>شرح</th>
+                                </tr>
+                                @foreach(var item in list)
+                                {
+                                    <tr>
+                                        <td class="text-success">@item.Amount.ToString("#,0 تومان")</td>
+                                        <td>@item.Createtime.toshamsi()</td>
+                                        <td>
+                                            @if (item.Type == 1)
+                                            {
+                                                <p class="text-success">واریز به حساب</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text-danger">واریز به حساب</p>
+                                            }
+                                        </td>
+                                        <td class="text-success">
+                                            @{ 
+                                                string taghref = "<a href='/UserPanel/Orders/ShowOrder/"+item.Description.Replace("فاکتور شما #","")+"'>#</a>";
+                                            }
+                                        @Html.Raw(item.Description.Replace("#",taghref))
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

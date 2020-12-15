@@ -1,0 +1,50 @@
+﻿@model Tuple<List<sonorous.Datalayer.Entites.Product.ProductComment>, int>
+@using sonorous.Core.Convertors;
+@{
+    ViewData["Title"] = "ShowComment";
+    Layout = null;
+}
+
+@foreach (var item in Model.Item1)
+{
+    <li>
+        <a href="" class="reply-button">پاسخ</a>
+        <img src="/Useravatar/@item.User.UserAvatar">
+        <div class="comment">
+            <h5>ارسال شده از : @item.User.Username در تاریخ : @item.CreateDate.toshamsi() </h5>
+            <p>
+                @item.Comment
+            </p>
+        </div>
+        <div class="clearfix"></div>
+        <ul>
+            <li>
+                <a href="" class="reply-button">پاسخ</a>
+
+                <img src="img/Valeera_HoW.png" width="65">
+                <div class="comment">
+                    <h5>ارسال شده از : میترا رحیمی در تاریخ : 15/5/95 </h5>
+                    <p>
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                        کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیستری را برای طراحان رایانه ای و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </li>
+           
+        </ul>
+
+    </li>
+}
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+
+        @for (int i = 1; i <= Model.Item2; i++)
+        {
+            <li class="page-item"><a class="page-link" onclick="pageComment(@i)">@i</a></li>
+        }
+
+
+    </ul>
+</nav>

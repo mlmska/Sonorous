@@ -1,0 +1,38 @@
+﻿@model sonorous.Core.DTOs.ShowProductListViewModel
+
+<div class="card">
+    <span class="saving saving-left">50%</span>
+
+    <img src="/Products/image/@Model.ProductImageName" href="/ShowProduct/@Model.ProductID" class="card-img-top" alt="...">
+    <div class="card-body">
+        <div class="caption">
+            <h4><a href="/ShowProduct/@Model.ProductID">@Model.ProductTitle</a></h4>
+            <p class="price"> <span class="price-new">@Model.Price.ToString("#,0")</span> <span class="price-old">240000 تومان</span> </p>
+            <div class="rating">
+                <span class="fa fa-stack">
+                    <i class="fa fa-star fa-stack-2x"></i>
+                    <i class="fa fa-star-o fa-stack-2x"></i>
+                </span> <span class="fa fa-stack">
+                    <i class="fa fa-star fa-stack-2x"></i>
+                    <i class="fa fa-star-o fa-stack-2x"></i>
+                </span><span class="fa fa-stack">
+                    <i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i>
+                </span>
+                <span class="fa fa-stack">
+                    <i class="fa fa-star fa-stack-2x"></i>
+                    <i class="fa fa-star-o fa-stack-2x"></i>
+                </span>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+            </div>
+        </div>
+        <div class="button-group">
+            <a class="afzoden" href="/ShowProduct/@Model.ProductID"><span> نمایش</span></a>
+            <div class="add-to-links">
+                <button class="favorite" type="button" data-toggle="tooltip" title="" onclick="" data-original-title="افزودن به علاقه مندی ها"><i class="fa fa-heart"></i></button>
+                <button class="favorite" type="button" data-toggle="tooltip" title="" onclick="" data-original-title="افزودن به علاقه مندی ها"><i class="fa fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+ 

@@ -1,0 +1,27 @@
+$font-slick:slick;
+$color-primary:black;
+$color-secondary:#222222;
+$color_danger:#990000;
+$color_yellow:yellow;
+$color_font:#aaa;
+$color-shadow:#4D4D4D;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'WYekan', sans-serif;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: slick;
+    font-weight: normal;
+    font-style: normal;
+    src: url('/slick/fonts/slick.eot');
+    src: url('/slick/fonts/slick.eot?#iefix') format('embedded-opentype'), url('/slick/fonts/slick.woff') format('woff'), url('/slick/fonts/slick.ttf') format('truetype'), url('/slick/fonts/slick.svg#slick') format('svg');
+}
+
+body {
+    font-size: 16;
+    line-height: 21px;
+    background-color: black!important;
+}

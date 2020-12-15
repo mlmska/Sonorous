@@ -1,0 +1,93 @@
+﻿@page "{id}"
+@model sonorous.Pages.Admin.Users.EditPageModel
+@using sonorous.Datalayer.Entites.User;
+@{
+    ViewData["Title"] = "ویرایش کاربر";
+    List<Role> roles = ViewData["Roles"] as List<Role>;
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">ویرایش کاربر </h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="EditUserViewModel.UserID" />
+        <input type="hidden" asp-for="EditUserViewModel.AvatarName" />
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    اطلاعات کاربر
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>نام کاربری</label>
+                        <label class="text-success">@Model.EditUserViewModel.Username</label>
+                    </div>
+                    <div class="form-group">
+                        <label>ایمیل</label>
+                        <label class="text-success">@Model.EditUserViewModel.Email</label>
+                    </div>
+                    <div class="form-group">
+                        <label> وضعیت کاربر</label>
+                       <div class="checkbox">
+                           <input type="checkbox" asp-for="EditUserViewModel.isactive"  />فعال
+                       </div>
+                    </div>
+
+                    <label>نقش های کاربر</label>
+                    @foreach (var item in roles)
+                    {
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="SelectedRoles" value="@item.RoleID" @((Model.EditUserViewModel.UserRoles.Any(r => r == item.RoleID)?"checked":""))>@item.Roletitle
+                            </label>
+
+                        </div>
+                    }
+                    <input type="submit" value="ذخیره اطلاعات" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    تصویر کاربر
+                </div>
+                <div class="panel-body">
+                    <img id="imgAvatar" class="thumbnail" src="/Useravatar/@Model.EditUserViewModel.AvatarName" />
+                    <div class="form-group">
+                        <label>انتخاب تصویر</label>
+                        <input id="imginp" type="file" asp-for="EditUserViewModel.UserAvatar" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
+@section Scripts
+{
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imgAvatar').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+
+        $("#imginp").change(function () {
+            readURL(this);
+        });
+    </script>
+}
